@@ -3,13 +3,12 @@ import Header from './components/Header';
 import Navigation from './components/Navigation';
 import SCPList from './components/SCPList';
 import SCPDetail from './components/SCPDetail';
-import scpDataJson from './data/scpData.json'; // ← Rename the import
+import scpDataJson from './data/scpData.json'; 
 import './App.css';
 
 function App() {
   const [selectedSCP, setSelectedSCP] = useState(null);
-  // Use the imported JSON data directly - no fetching needed!
-  const [data] = useState(scpDataJson); // ← Use the renamed import
+  const [data] = useState(scpDataJson); 
 
   const handleSelectSCP = (scp) => {
     setSelectedSCP(scp);
@@ -33,13 +32,13 @@ function App() {
         <Navigation 
           onSelectSCP={handleSelectSCP} 
           currentSCP={selectedSCP} 
-          scpData={data} // ← Pass the data
+          scpData={data} 
         />
         <main className="main-content">
           {selectedSCP ? (
             <SCPDetail scp={selectedSCP} onBack={handleBackToList} />
           ) : (
-            <SCPList onSelectSCP={handleSelectSCP} scpData={data} /> // ← Pass the data
+            <SCPList onSelectSCP={handleSelectSCP} scpData={data} /> 
           )}
         </main>
       </div>
